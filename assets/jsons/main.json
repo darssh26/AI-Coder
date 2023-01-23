@@ -1,0 +1,26 @@
+{
+    "title": "AI Coder",
+    "tokens": 200,
+    "features": [
+        {
+            "title": "Code Optimization",
+            "subtitle": "Improve your code efficiency and performance",
+            "prompt": "optimize this code : "
+        },
+        {
+            "title": "Fix Code Bugs",
+            "subtitle": "dentify and resolve errors in your code",
+            "prompt": "fix this code bug : "
+        },
+        {
+            "title": "Code Comments and documentation",
+            "subtitle": "understand, maintain, and improve your code by adding comments and documentation to it",
+            "prompt": "write comments and documentation for this code : "
+        },
+        {
+            "title": "Code Explain",
+            "subtitle": "get an explanation or a description of how a code works",
+            "prompt": "Explain this code : "
+        }
+    ]
+}
