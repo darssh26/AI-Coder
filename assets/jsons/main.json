@@ -1,6 +1,6 @@
 {
     "title": "AI Coder",
-    "tokens": 200,
+    "max_tokens": 200,
     "features": [
         {
             "title": "Code Optimization",
@@ -21,6 +21,11 @@
             "title": "Code Explain",
             "subtitle": "get an explanation or a description of how a code works",
             "prompt": "Explain this code : "
+        },
+        {
+            "title": "Ask me anything",
+            "subtitle": "Ask AI coder anything you want",
+            "prompt": ""
         }
     ]
 }
