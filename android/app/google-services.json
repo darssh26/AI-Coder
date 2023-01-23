@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "521271030313",
+    "project_id": "ai-coder-b841c",
+    "storage_bucket": "ai-coder-b841c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521271030313:android:40d4c9a872b7ff1b4ee238",
+        "android_client_info": {
+          "package_name": "com.betterfuture.aicoder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521271030313-qj95io70jq4emqtg6thv25cmghi1r532.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2pVQG6uSWRP1-3Aq2qQV04yAGBdZ_8R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521271030313-qj95io70jq4emqtg6thv25cmghi1r532.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

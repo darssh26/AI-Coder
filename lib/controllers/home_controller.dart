@@ -10,8 +10,11 @@ import 'package:aicoder/views/routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class HomeController extends GetxController {
+  final remoteConfig = FirebaseRemoteConfig.instance;
+
   List<Feature> _features = [];
   List<Feature> get features => _features;
 
@@ -49,6 +52,8 @@ class HomeController extends GetxController {
     super.onInit();
 
     inputController = TextEditingController();
+
+    getApiKey();
 
     getData();
   }
@@ -92,7 +97,22 @@ class HomeController extends GetxController {
       loading = false;
       update();
     } catch (e) {
+      loading = false;
+      update();
       log(e.toString());
     }
+  }
+
+  void getApiKey() async {
+    await remoteConfig.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: const Duration(minutes: 1),
+      minimumFetchInterval: const Duration(hours: 0),
+    ));
+
+    remoteConfig.fetchAndActivate();
+
+    Globals.apiKey = remoteConfig.getValue("gpt_api_key").asString();
+
+    log(Globals.apiKey);
   }
 }
