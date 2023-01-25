@@ -1,6 +1,5 @@
 {
     "title": "AI Coder",
-    "max_tokens": 200,
     "features": [
         {
             "title": "Code Optimization",

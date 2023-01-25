@@ -64,7 +64,6 @@ class HomeController extends GetxController {
 
     _features =
         (data["features"] as List).map((e) => Feature.fromJson(e)).toList();
-    Globals.maxTokens = data['max_tokens'];
     Timer(const Duration(seconds: 2), goHome);
   }
 
@@ -111,8 +110,8 @@ class HomeController extends GetxController {
 
     remoteConfig.fetchAndActivate();
 
+    Globals.maxTokens = remoteConfig.getValue("max_tokens").asInt();
+    log(Globals.maxTokens.toString());
     Globals.apiKey = remoteConfig.getValue("gpt_api_key").asString();
-
-    log(Globals.apiKey);
   }
 }
