@@ -26,6 +26,8 @@ class HomeController extends GetxController {
 
   bool loading = false;
 
+  String errorMessage = "";
+
   List<Color> colors = const [
     Color(0xFF10A19D),
     Color(0xFF540375),
@@ -48,12 +50,12 @@ class HomeController extends GetxController {
   late Color selectedColor;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
 
     inputController = TextEditingController();
 
-    getApiKey();
+    await getApiKey();
 
     getData();
   }
@@ -80,6 +82,7 @@ class HomeController extends GetxController {
     selectedColor = s;
     inputController.clear();
     answer = null;
+    errorMessage = "";
     Get.toNamed(Routes.code);
   }
 
@@ -88,6 +91,7 @@ class HomeController extends GetxController {
     Get.focusScope!.unfocus();
     try {
       loading = true;
+      errorMessage = "";
       update();
 
       answer = await CodeApi.getCodeCompletion(
@@ -97,18 +101,19 @@ class HomeController extends GetxController {
       update();
     } catch (e) {
       loading = false;
+      errorMessage = CodeApi.errorMessage;
       update();
       log(e.toString());
     }
   }
 
-  void getApiKey() async {
+  Future getApiKey() async {
     await remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: const Duration(minutes: 1),
       minimumFetchInterval: const Duration(hours: 0),
     ));
 
-    remoteConfig.fetchAndActivate();
+    await remoteConfig.fetchAndActivate();
 
     Globals.maxTokens = remoteConfig.getValue("max_tokens").asInt();
     log(Globals.maxTokens.toString());

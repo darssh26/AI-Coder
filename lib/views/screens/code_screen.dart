@@ -107,7 +107,16 @@ class CodeScreen extends StatelessWidget {
                   );
                 }
                 if (controller.answer == null) {
-                  return Container();
+                  return Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+                    child: Text(
+                      controller.errorMessage,
+                      style: GoogleFonts.roboto(
+                        fontSize: 12.sp,
+                      ),
+                    ),
+                  );
                 }
                 return SingleChildScrollView(
                   child: Column(
