@@ -40,7 +40,7 @@ class SplashScreen extends StatelessWidget {
               ],
             ),
             child: Text(
-              "AI Coder",
+              "Code Mentor",
               style: GoogleFonts.roboto(
                 fontSize: 30.sp,
                 color: Colors.white,
